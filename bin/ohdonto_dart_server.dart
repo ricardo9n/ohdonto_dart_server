@@ -32,6 +32,6 @@ void main() async {
   await CustomServer().initialize(
     handler: handler,
     address: 'localhost', //await CustomEnv.get<String>(key: 'server_address'),
-    port: 8081, //await CustomEnv.get<int>(key: 'server_port'),
+    port: 8082, //await CustomEnv.get<int>(key: 'server_port'),
   );
 }

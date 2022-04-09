@@ -35,17 +35,22 @@ class UserService implements GenericService<UserModel> {
 
     return true;
   }
-  
+
   @override
   UserModel save2(UserModel value) {
-    UserModel? model = _fakeUsersDB.firstWhereOrNull((e) => e.email == value.email);
+    UserModel? model = _fakeUsersDB.firstWhereOrNull((e) => e.id == value.id);
+    model =
+        model ?? _fakeUsersDB.firstWhereOrNull((e) => e.email == value.email);
+
     if (model == null) {
+      print('value: $value'); //TODO remove
       _fakeUsersDB.add(value);
+      model = value;
     } else {
       var index = _fakeUsersDB.indexOf(model);
       _fakeUsersDB[index] = model;
+      print('model: $model'); //TODO remove
     }
-
-    return model!;
+    return model;
   }
 }

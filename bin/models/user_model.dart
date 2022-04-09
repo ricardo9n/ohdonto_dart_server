@@ -8,7 +8,7 @@ class UserModel {
 
   UserModel(this.id, this.name, this.email, this.password);
 
-  factory UserModel.fromJson(Map map) {
+  factory UserModel.fromMap(Map map) {
     Random r = Random(12345678);
     return UserModel(
       map['id'] ?? (r.nextInt(1 << 32).toString()),
@@ -18,7 +18,7 @@ class UserModel {
     );
   }
 
-  factory UserModel.fromJsonSignUp(Map map) {
+  factory UserModel.fromSignUpMap(Map map) {
     Random r = Random(123456789);
     return UserModel(
       map['id'] ?? (r.nextInt(1 << 32).toString()),
@@ -28,7 +28,7 @@ class UserModel {
     );
   }
 
-  Map toJson() {
+  Map toMap() {
     return {
       'id': id,
       'name': name,

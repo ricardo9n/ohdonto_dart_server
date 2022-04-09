@@ -4,8 +4,9 @@ class MiddlewareInterception {
   Middleware get middlerware => createMiddleware(
         responseHandler: (Response res) => res.change(
           headers: {
-            'content-type': 'application/json',
-            'xpto': '123',
+            'Content-Type': 'text/html',
+            'xpto': '1234',
+            'Access-Control-Allow-Origin': '*',
           },
         ),
       );
