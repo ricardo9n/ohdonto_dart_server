@@ -1,4 +1,6 @@
 import 'package:shelf/shelf.dart';
+import 'package:shelf_cors_headers/shelf_cors_headers.dart';
+
 
 import 'apis/blog_api.dart';
 import 'apis/login_api.dart';
@@ -24,6 +26,7 @@ void main() async {
       .handler;
 
   var handler = Pipeline()
+      //.addMiddleware(corsHeaders()) //cors: https://pub.dev/packages/shelf_cors_headers
       .addMiddleware(logRequests()) // global Middlewares
       .addMiddleware(MiddlewareInterception().middlerware) // global Middlewares
       .addHandler(cascadeHandler);
